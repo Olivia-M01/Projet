@@ -1,0 +1,34 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    padding: 10px;
+    background-color: rgb(226, 196, 196);
+
+}
+.liens{
+    display: flex;
+    flex-direction: row-reverse;
+    text-align:center;
+    gap: 20px;
+    margin: 10px;
+    
+}
+.formulaire{
+   padding: 10 30px;
+    text-align: center;
+
+}
+.formulaire button{
+    padding: 10px;
+    border-radius: 35px;
+    background-color: rgb(114, 205, 247);
+}
+.presentation{
+    text-align: center;
+    margin: 100px;
+    padding: 100px;
+}
