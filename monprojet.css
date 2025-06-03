@@ -18,7 +18,12 @@
 }
 body{
     padding: 10px;
-    background-image: url(fond/port-fond1.jpg);
+    background-image: url(fond/port-fond.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
     
 }
     .formulaire{
