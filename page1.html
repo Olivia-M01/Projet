@@ -7,14 +7,23 @@
     <title>First page</title>
 </head>
 <body>
-    <nav>
-        <div class="navbar">
-            <div class="logo"></div>
-            <a href=""><button>Langues</button></a>
-            <a href="">Aide</a>
-            <a href="">Catégories</a>
-            <a href="">A propos</a>
+    <nav class="navbar">
+        <div class="navbar1">
             <a href="acceuil.html">Acceuil</a>
+            <a href="">Apropos</a>
+            <a href="">Catégories</a>
+            <a href="">Aide</a>
+            <select id="langues" name="langues" type="radio" required><br><br>
+                        <option value="" disabled selected>Langues</option>
+                        <option value="français">Français</option>
+                        <option value="anglais">Anglais</option>
+                        <option value="swahili">Swahili</option>
+                        <option value="lingala">Lingala</option>
+
+                    </select>
+        </div>
+        <div class="navbar2">
+            <img src="fond/logo1.png" class="logo" alt="Logo">
         </div>
     </nav>
 

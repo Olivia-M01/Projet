@@ -1,34 +1,72 @@
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+body {
+    color: rgb(248, 231, 195);
+    background-color: #0c0c0c;
+}
 .navbar{
     display: flex;
+    justify-content: space-between;
     flex-direction: row-reverse;
-    gap: 10px;
-    padding: 10px;
+    align-items: center;
+    padding: 10px 20px;
+
 }
 .navbar a {
     text-decoration: none;
+    color: rgb(248, 231, 195);
+    
+}
+.navbar1 {
+    display: flex;
+    gap: 10px;
 }
 .accroche {
     text-align: center;
     padding-bottom: 30px;
     padding-top: 40px;
+    color: rgb(243, 233, 210);
 }
 .recherche {
     text-align: center;
 }
 #recherche {
     padding: 10px;
-    width: 60%;
+    width: 40%;
     border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.062);
+    border: 1px solid rgb(117, 115, 102);
 }
 .types {
-    text-align: center;
-    gap: 15x;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    
 }
 .types a {
     text-decoration: none;
+    color: white;
+}
+.navbar2 {
+    display: flex;
+    align-items: center;
+}
+.logo {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+    background: transparent;
+}
+#langues {
+    margin-bottom: ;
+    width:30%;
+    border-radius: 5px;
+    border: 1px solid rgb(117, 115, 102);
+    background-color: rgba(255, 255, 255, 0.062);
+    color: rgb(248, 231, 195);
+    cursor: pointer;
 }
