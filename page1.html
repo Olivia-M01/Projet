@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="page1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <title>First page</title>
 </head>
 <body>
@@ -23,7 +26,7 @@
                     </select>
         </div>
         <div class="navbar2">
-            <img src="fond/logo1.png" class="logo" alt="Logo">
+            <img src="fond/logo.png" class="logo" alt="Logo">
         </div>
     </nav>
 
@@ -39,9 +42,29 @@
         <a href="">Restaurants</a>
         <a href="">Hôtels</a>
         <a href="">Sites touristiques</a>
-        <a href="">Super marché</a>
+        <a href="">Super marché</a> 
         <a href="">Universités</a>
     </div>
+    <footer class="footer-icons">
+        <button class="icon-btn"><img src="fond/image1.jpg" alt="Restaurant" class="icon-img"><br>Restaurant</button>
+        <button class="icon-btn"><img src="fond/image2.jpg" alt="Hôtel" class="icon-img"><br>Hôtel</button>
+        <button class="icon-btn"><img src="fond/image3.jpg" alt="Site touristique" class="icon-img"><br>Site touristique</button>
+        <button class="icon-btn"><img src="fond/image4.jpg" alt="Super marché" class="icon-img"><br>Super marché</button>
+        <button class="icon-btn"><img src="fond/image5.jpg" alt="Université" class="icon-img"><br>Université</button>
+    </footer>
 
+    <div id="map"></div>
+
+    <script>
+      // Initialisation de la carte Leaflet
+      var map = L.map('map').setView([0.3136, 32.5811], 13); // Coordonnées par défaut (Kampala, à adapter)
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+      // Marqueur exemple
+      L.marker([0.3136, 32.5811]).addTo(map)
+        .bindPopup('Vous êtes ici !')
+        .openPopup();
+    </script>
 </body>
 </html>
