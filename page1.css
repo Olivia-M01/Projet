@@ -88,10 +88,11 @@ body {
     gap: 30px; /* Espace entre les boutons */
     padding: 20px 0 10px 0; /* Espace intérieur en haut et en bas */
     position: fixed; /* Fixe le footer en bas de la page */
-    left: 0;
+    left: Auto;
     bottom: 0;
     width: 100%; /* Prend toute la largeur */
     z-index: 100; /* Passe au-dessus du contenu */
+    
 }
 .icon-btn {
     background: none; 
@@ -103,26 +104,23 @@ body {
     align-items: center;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s; /* Animation douce au survol */
+    font-family: inherit; /* Utilise la même police que le reste de la page */
 }
 .icon-btn:hover {
     transform: translateY(-5px) scale(1.08); /* Légère élévation et agrandissement au survol */
-    box-shadow: 0 4px 16px rgba(255,255,255,0.08); /* Ombre légère au survol */
+
 }
 .icon-img {
-    width: 40px; /* Taille du rond */
-    height: 40px;
     display: flex; /* Centre l'icône dans le rond */
     align-items: center;
     justify-content: center;
-    border-radius: 50%; /* Forme ronde */
-    margin-bottom: 5px; /* Espace sous le rond */
-    border: 2px solid #e0cfa9; /* Bordure dorée claire */
     background: #fff0; /* Fond transparent */
+    width: 5px; /* Largeur du rond */
 }
 .icon-img i {
-    color: #FFD700; /* Couleur dorée pour l'icône */
-    font-size: 2rem; /* Taille de l'icône */
-    line-height: 1;
+    color: #cca12c; /* Couleur dorée pour l'icône */
+    font-size: 1.5rem; /* Taille de l'icône */
+    
 }
 #map {
     width: 100%;
