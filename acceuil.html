@@ -1,15 +1,50 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="acceuil.css">
-    </head>
-    <body>
-        <section class="presentation">
-        <h1>BIENVENU SUR DREAMEX PLACE!</h1>
-        <h4>Découvrons ensemble des lieux exceptionnels qui rendrons chacune de vos journée unique.</h4>
-        </section>
-        <section class="formulaire">
-            <a href="inscription.html"><button><strong> Commencez l'aventure</strong></button></a>
-        </section>
-        </body>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="acceuil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>First page</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar2">
+            <img src="fond/logo.png" class="logo" alt="Logo">
+        </div>
+        <div class="profile-menu">
+            <button class="profile-btn" id="profileMenuBtn">
+                <span class="profile-icon"><i class="fa-solid fa-user-circle"></i></span>
+            </button>
+            <div class="profile-dropdown" id="profileDropdown">
+                <ul>
+                    <li><i class="fa-solid fa-user"></i><a href="#"> Profil</a></li>
+                    <li><i class="fa-solid fa-house"></i> <a href="acceuil.html">Acceuil</a></li>
+                    <li><i class="fa-solid fa-circle-info"></i> <a href="apropos.html">Apropos</a></li>
+                    <li><i class="fa-solid fa-list"></i> <a href="categories.html">Catégories</a></li>
+                    <li><i class="fa-solid fa-language"></i><a href=""> Langues</a></li>
+                    <li><i class="fa-solid fa-gear"></i><a href=""> Paramètre</a></li>
+                    <li><i class="fa-solid fa-circle-question"></i><a href=""> Aide</a></li>
+                    <li><i class="fa-solid fa-right-from-bracket"></i><a href=""> Déconnexion</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="accroche">
+        <h1>Que voulez-vous découvrir aujourd'hui ?</h1>
+    </div>
+
+    <div class="recherche">
+        <input id="recherche" name="recherche" type="text" placeholder="Rechercher"><br><br>
+    </div>
+
+    <footer class="footer-icons">
+        <button class="icon-btn"><span class="icon-img"><i class="fa-solid fa-utensils"></i></span><br>Restaurant</button>
+        <button class="icon-btn"><span class="icon-img"><i class="fa-solid fa-hotel"></i></span><br>Hôtel</button>
+        <button class="icon-btn"><span class="icon-img"><i class="fa-solid fa-mountain-sun"></i></span><br>Tourisme</button>
+        <button class="icon-btn"><span class="icon-img"><i class="fa-solid fa-ellipsis"></i></span><br>Autre</button>
+    </footer>
+    <script src="acceuil.js"></script>
+</body>
 </html>
