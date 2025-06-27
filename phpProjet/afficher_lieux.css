@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #f7b731;
+}
+
+/* Style général pour la grille des lieux */
+.lieux-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+/* Carte de chaque lieu */
+.lieu-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    width: 320px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s; /* Animation lors du survol de la carte */
+}
+.lieu-card:hover {
+    transform: translateY(-6px) scale(1.03); /* Déplace et agrandit légèrement la carte au survol */
+    box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+}
+
+.lieu-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; /* L'image garde son ratio et remplit le conteneur */
+    background: #eee;
+}
+
+.lieu-content {
+    padding: 18px 20px 16px 20px;
+    flex: 1; /* Prend tout l'espace vertical restant */
+    display: flex;
+    flex-direction: column; /* Organise le contenu en colonne */
+}
+
+.lieu-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #2d3a4b;
+}
+
+.lieu-stars {
+    color: #f7b731;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.lieu-description {
+    font-size: 0.98rem;
+    color: #555;
+    margin-bottom: 14px;
+    flex: 1;
+    overflow: hidden; /* Cache le texte qui dépasse */
+    text-overflow: ellipsis; /* Ajoute des points de suspension si le texte est trop long */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limite l'affichage à 3 lignes */
+    -webkit-box-orient: vertical; /* Définit l'orientation de la boîte pour le clamp */
+}
+
+.lieu-btn {
+    background: #00a680;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 0;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s; /* Animation lors du survol du bouton */
+    text-align: center;
+    text-decoration: none;
+}
+.lieu-btn:hover {
+    background: #007d5e;
+}
+
