@@ -85,10 +85,22 @@ body {
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s; /* Animation douce au survol */
     font-family: inherit; /* Utilise la même police que le reste de la page */
+    text-decoration: none !important;
 }
 .icon-btn:hover {
     transform: translateY(-5px) scale(1.08); /* Légère élévation et agrandissement au survol */
 
+}
+.icon-btn .icon-label {
+    text-decoration: none;
+    color: #cca12c;
+    font-size: 1rem;
+    margin-top: 2px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.icon-btn:hover .icon-label {
+    color: #FFD700;
 }
 .icon-img {
     display: flex; /* Centre l'icône dans le rond */
