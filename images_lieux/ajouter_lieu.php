@@ -1,14 +1,10 @@
 <?php include 'config.php'; ?>
-<?php ini_set('display_errors', 1);
-error_reporting(E_ALL);?>
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
 <form method="POST" action="" enctype="multipart/form-data">
     <input type="text" name="nom" placeholder="Nom du lieu" required><br>
-<<<<<<< HEAD
-    <input type="text" name="categorie" placeholder="Catégorie (hôtel,restaurant,...)" required><br>
-=======
     <input type="text" name="type" placeholder="Type (hôtel,restaurant,...)" required><br>
->>>>>>> 0a73955f463017b9271fa351f7b5b7d3c842695b
     <input type="text" name="adresse" placeholder="Adresse" required><br>
     <input type="text" name="prix" placeholder="Prix" required><br>
     <input type="text" name="services" placeholder="Services (wifi,parking,...)" required><br>
@@ -23,11 +19,7 @@ error_reporting(E_ALL);?>
 if (isset($_POST['ajouter'])) {
     // Récupération des champs
     $nom = $_POST['nom'];
-<<<<<<< HEAD
-    $categorie = $_POST['categorie'];
-=======
     $type = $_POST['type'];
->>>>>>> 0a73955f463017b9271fa351f7b5b7d3c842695b
     $adresse = $_POST['adresse'];
     $prix = $_POST['prix'];
     $services = $_POST['services'];
@@ -38,11 +30,7 @@ if (isset($_POST['ajouter'])) {
     // Affichage pour vérification
     echo '<pre>';
     echo "nom : $nom\n";
-<<<<<<< HEAD
-    echo "categorie : $categorie\n";
-=======
     echo "type : $type\n";
->>>>>>> 0a73955f463017b9271fa351f7b5b7d3c842695b
     echo "adresse : $adresse\n";
     echo "prix : $prix\n";
     echo "services : $services\n";
@@ -50,22 +38,18 @@ if (isset($_POST['ajouter'])) {
     echo "note : $note\n";
     echo "avis : $avis\n";
     if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
-        echo "image : Votre image a bien été enregisrée !\n";
+        echo "image : OK\n";
     } else {
         echo "image : Erreur ou non reçue\n";
     }
     echo '</pre>';
+
     // Gestion de l'image
     $ajout_ok = false;
     if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
         $image = file_get_contents($_FILES['image']['tmp_name']);
-<<<<<<< HEAD
-        $stmt = $pdo->prepare("INSERT INTO lieux (nom, categorie, adresse, prix, services, description, note, avis, image_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        if ($stmt->execute([$nom, $categorie, $adresse, $prix, $services, $description, $note, $avis, $image])) {
-=======
         $stmt = $pdo->prepare("INSERT INTO lieux (nom, type, adresse, prix, services, description, note, avis, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
         if ($stmt->execute([$nom, $type, $adresse, $prix, $services, $description, $note, $avis, $image])) {
->>>>>>> 0a73955f463017b9271fa351f7b5b7d3c842695b
             $ajout_ok = true;
         }
     }
@@ -75,6 +59,6 @@ if (isset($_POST['ajouter'])) {
     } else {
         echo '<div style="color:red;font-weight:bold;">Erreur lors de l\'ajout du lieu.</div>';
     }
+    echo "Formulaire soumis !<br>";
 }
 ?>
-

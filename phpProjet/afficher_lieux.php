@@ -9,6 +9,7 @@
 <body>
     <div class="lieux-container">
     <?php
+<<<<<<< HEAD
     // Connection à la base de données
     $conn = new mysqli("localhost", "root", "", "dreamex_places");
     if ($conn->connect_error) {
@@ -35,6 +36,15 @@
             $image_url = htmlspecialchars($lieu["image_url"]);
             if (strpos($image_url, 'image_url/') !== 0) {
                 $image_url = 'image_url/' . $image_url;
+=======
+    //Connection à la base de données
+    $conn = new mysqli("localhost", "root", "", "dreamex_places");
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }lchars($lieu["image_url"]);
+            if (strpos($image_url, 'images/') !== 0) {
+                $image_url = 'images/' . $image_url;
+>>>>>>> 0a73955f463017b9271fa351f7b5b7d3c842695b
             }
             echo '<img src="' . $image_url . '" class="lieu-image" alt="Image du lieu">';
             echo '<div class="lieu-content">';
@@ -59,4 +69,20 @@
     ?>
     </div>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+
+
+    // Récupération des lieux
+    $sql = "SELECT * FROM lieux";
+    $result = $conn->query($sql);
+
+    //Affichage
+    if ($result->num_rows > 0) {
+        while ($lieu = $result->fetch_assoc()) {
+            echo '<div class="lieu-card">';
+            // Correction du chemin de l'image si besoin
+            $image_url = htmlspecia
+>>>>>>> 0a73955f463017b9271fa351f7b5b7d3c842695b
