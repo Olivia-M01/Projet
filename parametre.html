@@ -19,8 +19,113 @@
         <ul>
             <li><i class="fa-solid fa-right-from-bracket"></i> <a href="#">Déconnexion</a></li>
             <li><i class="fa-solid fa-key"></i> <a href="#">Changer mot de passe</a></li>
-            <li><i class="fa-solid fa-user-pen"></i> <a href="#">Modifier profil</a></li>
+            <li><i class="fa-solid fa-user-pen"></i> <a href="#" id="modifierProfilBtn">Modifier profil</a></li>
         </ul>
+        <div class="profil-complet" id="profil-complet">
+            <h3><i class="fa-solid fa-user"></i> Profil de l'utilisateur</h3>
+            <div class="profil-info" id="profilInfo">
+                <p><strong>Nom :</strong> <span id="profilNom">Olivia</span></p>
+                <p><strong>Post-nom :</strong> <span id="profilPostnom">M01</span></p>
+                <p><strong>Prénom :</strong> <span id="profilPrenom">PrénomExemple</span></p>
+                <p><strong>Email :</strong> <span id="profilEmail">olivia@example.com</span></p>
+                <p><strong>Téléphone :</strong> <span id="profilTelephone">+243 900 000 000</span></p>
+                <p><strong>Genre :</strong> <span id="profilGenre">Femme</span></p>
+            </div>
+            <button id="btnEditProfil" class="btn-edit">Modifier</button>
+            <form id="formEditProfil" style="display:none;margin-top:18px;">
+                <input type="text" name="nom" id="editNom" placeholder="Nom" required><br>
+                <input type="text" name="postnom" id="editPostnom" placeholder="Post-nom" required><br>
+                <input type="text" name="prenom" id="editPrenom" placeholder="Prénom" required><br>
+                <input type="email" name="email" id="editEmail" placeholder="Email" required><br>
+                <input type="text" name="telephone" id="editTelephone" placeholder="Téléphone" required><br>
+                <select name="genre" id="editGenre" required>
+                    <option value="">Genre</option>
+                    <option value="Femme">Femme</option>
+                    <option value="Homme">Homme</option>
+                    <option value="Autre">Autre</option>
+                </select><br>
+                <button type="submit" class="btn-save">Enregistrer</button>
+                <button type="button" id="btnAnnuler" class="btn-cancel">Annuler</button>
+            </form>
+            <div id="profilMessage" style="margin-top:10px;color:#cca12c;"></div>
+        </div>
     </div>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var btn = document.getElementById('modifierProfilBtn');
+    var profil = document.getElementById('profil-complet');
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        profil.classList.toggle('visible');
+        if (profil.classList.contains('visible')) {
+            profil.scrollIntoView({behavior: 'smooth'});
+        }
+    });
+
+    // Gestion édition profil
+    var btnEdit = document.getElementById('btnEditProfil');
+    var form = document.getElementById('formEditProfil');
+    var info = document.getElementById('profilInfo');
+    var btnAnnuler = document.getElementById('btnAnnuler');
+    var msg = document.getElementById('profilMessage');
+
+    // Charger les infos actuelles
+    fetch('phpProjet/modifier_profil.php')
+      .then(r=>r.json())
+      .then(function(data){
+        if(data) {
+          document.getElementById('profilNom').textContent = data.nom || '';
+          document.getElementById('profilPostnom').textContent = data.postnom || '';
+          document.getElementById('profilPrenom').textContent = data.prenom || '';
+          document.getElementById('profilEmail').textContent = data.email || '';
+          document.getElementById('profilTelephone').textContent = data.telephone || '';
+          document.getElementById('profilGenre').textContent = data.genre || '';
+        }
+      });
+
+    btnEdit.addEventListener('click', function() {
+        info.style.display = 'none';
+        form.style.display = 'block';
+        msg.textContent = '';
+        // Pré-remplir le formulaire
+        document.getElementById('editNom').value = document.getElementById('profilNom').textContent;
+        document.getElementById('editPostnom').value = document.getElementById('profilPostnom').textContent;
+        document.getElementById('editPrenom').value = document.getElementById('profilPrenom').textContent;
+        document.getElementById('editEmail').value = document.getElementById('profilEmail').textContent;
+        document.getElementById('editTelephone').value = document.getElementById('profilTelephone').textContent;
+        document.getElementById('editGenre').value = document.getElementById('profilGenre').textContent;
+    });
+    btnAnnuler.addEventListener('click', function() {
+        form.style.display = 'none';
+        info.style.display = 'block';
+        msg.textContent = '';
+    });
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var formData = new FormData(form);
+        fetch('phpProjet/modifier_profil.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(r=>r.text())
+        .then(function(res){
+            if(res.trim()==='success'){
+                // Mettre à jour l'affichage
+                document.getElementById('profilNom').textContent = formData.get('nom');
+                document.getElementById('profilPostnom').textContent = formData.get('postnom');
+                document.getElementById('profilPrenom').textContent = formData.get('prenom');
+                document.getElementById('profilEmail').textContent = formData.get('email');
+                document.getElementById('profilTelephone').textContent = formData.get('telephone');
+                document.getElementById('profilGenre').textContent = formData.get('genre');
+                msg.textContent = 'Profil mis à jour !';
+                form.style.display = 'none';
+                info.style.display = 'block';
+            } else {
+                msg.textContent = 'Erreur lors de la mise à jour.';
+            }
+        });
+    });
+});
+</script>
 </body>
 </html>

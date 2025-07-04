@@ -38,3 +38,80 @@
 .param-page a:hover {
     color: #FFD700;
 }
+
+/* Profil complet dans la page paramètres */
+.profil-complet {
+    background: #222;
+    color: #cca12c;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.13);
+    padding: 28px 24px 18px 24px;
+    margin: 32px auto 0 auto;
+    max-width: 400px;
+    text-align: left;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+.profil-complet.visible {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.4s;
+}
+.profil-complet h3 {
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 18px;
+}
+.profil-info p {
+    margin: 10px 0;
+    font-size: 1.08rem;
+    color: #FFD700;
+}
+.profil-info strong {
+    color: #cca12c;
+}
+.btn-edit, .btn-save, .btn-cancel {
+    background: #cca12c;
+    color: #18120a;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 18px;
+    margin: 10px 6px 0 0;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.btn-edit:hover, .btn-save:hover {
+    background: #FFD700;
+    color: #222;
+}
+.btn-cancel {
+    background: #444;
+    color: #cca12c;
+}
+.btn-cancel:hover {
+    background: #222;
+    color: #FFD700;
+}
+#formEditProfil input, #formEditProfil select {
+    width: 95%;
+    margin: 7px 0;
+    padding: 7px 10px;
+    border-radius: 5px;
+    border: 1px solid #cca12c;
+    background: #18120a;
+    color: #cca12c;
+    font-size: 1rem;
+}
+#formEditProfil select {
+    width: 100%;
+}
+#formEditProfil button {
+    margin-top: 10px;
+}
+#profilMessage {
+    min-height: 18px;
+    font-size: 1.05rem;
+}
+
