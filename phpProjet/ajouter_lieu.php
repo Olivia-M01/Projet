@@ -1,14 +1,15 @@
 <?php include 'config.php'; ?>
 <?php ini_set('display_errors', 1);
-error_reporting(E_ALL);?>
+error_reporting(E_ALL);
+// Connexion PDO si non déjà définie
+if (!isset($pdo)) {
+    $pdo = new PDO('mysql:host=localhost;dbname=dreamex_places', 'root', '');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}?>
 
 <form method="POST" action="" enctype="multipart/form-data">
     <input type="text" name="nom" placeholder="Nom du lieu" required><br>
-<<<<<<< HEAD
     <input type="text" name="categorie" placeholder="Catégorie (hôtel,restaurant,...)" required><br>
-=======
-    <input type="text" name="type" placeholder="Type (hôtel,restaurant,...)" required><br>
->>>>>>> 0a73955f463017b9271fa351f7b5b7d3c842695b
     <input type="text" name="adresse" placeholder="Adresse" required><br>
     <input type="text" name="prix" placeholder="Prix" required><br>
     <input type="text" name="services" placeholder="Services (wifi,parking,...)" required><br>
@@ -23,11 +24,7 @@ error_reporting(E_ALL);?>
 if (isset($_POST['ajouter'])) {
     // Récupération des champs
     $nom = $_POST['nom'];
-<<<<<<< HEAD
     $categorie = $_POST['categorie'];
-=======
-    $type = $_POST['type'];
->>>>>>> 0a73955f463017b9271fa351f7b5b7d3c842695b
     $adresse = $_POST['adresse'];
     $prix = $_POST['prix'];
     $services = $_POST['services'];
@@ -38,11 +35,7 @@ if (isset($_POST['ajouter'])) {
     // Affichage pour vérification
     echo '<pre>';
     echo "nom : $nom\n";
-<<<<<<< HEAD
     echo "categorie : $categorie\n";
-=======
-    echo "type : $type\n";
->>>>>>> 0a73955f463017b9271fa351f7b5b7d3c842695b
     echo "adresse : $adresse\n";
     echo "prix : $prix\n";
     echo "services : $services\n";
@@ -58,15 +51,18 @@ if (isset($_POST['ajouter'])) {
     // Gestion de l'image
     $ajout_ok = false;
     if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
-        $image = file_get_contents($_FILES['image']['tmp_name']);
-<<<<<<< HEAD
-        $stmt = $pdo->prepare("INSERT INTO lieux (nom, categorie, adresse, prix, services, description, note, avis, image_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        if ($stmt->execute([$nom, $categorie, $adresse, $prix, $services, $description, $note, $avis, $image])) {
-=======
-        $stmt = $pdo->prepare("INSERT INTO lieux (nom, type, adresse, prix, services, description, note, avis, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        if ($stmt->execute([$nom, $type, $adresse, $prix, $services, $description, $note, $avis, $image])) {
->>>>>>> 0a73955f463017b9271fa351f7b5b7d3c842695b
-            $ajout_ok = true;
+        $image_name = basename($_FILES['image']['name']);
+        $target_dir = "image_url/";
+        $target_path = $target_dir . $image_name;
+        // Déplacer l'image uploadée dans le dossier image_url/
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $target_path)) {
+            // Enregistrer le nom du fichier dans la base
+            $stmt = $pdo->prepare("INSERT INTO lieux (nom, categorie, adresse, prix, services, description, note, avis, image_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            if ($stmt->execute([$nom, $categorie, $adresse, $prix, $services, $description, $note, $avis, $image_name])) {
+                $ajout_ok = true;
+            }
+        } else {
+            echo '<div style="color:red;">Erreur lors de l\'upload de l\'image.</div>';
         }
     }
     // Message de confirmation ou d'erreur

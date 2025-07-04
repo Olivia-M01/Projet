@@ -6,19 +6,27 @@
     <title>Détails du lieu</title>
     <link rel="stylesheet" href="afficher_lieux.css">
     <style>
+        /* Nouveau design harmonisé avec afficher_lieux.css et acceuil.css */
+        body {
+            background: #0c0c0c;
+            color: rgb(248, 231, 195);
+            font-family: inherit;
+        }
         .details-container {
             max-width: 600px;
             margin: 40px auto;
-            background: #fff;
+            background: #18120a;
             border-radius: 16px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            border: 2.5px solid #cca12c;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.13);
             padding: 32px 28px;
         }
         .details-title {
             font-size: 2rem;
             font-weight: bold;
             margin-bottom: 12px;
-            color: #2d3a4b;
+            color: #FFD700;
+            letter-spacing: 0.5px;
         }
         .details-image {
             width: 100%;
@@ -26,18 +34,73 @@
             object-fit: cover;
             border-radius: 12px;
             margin-bottom: 18px;
+            background: #222;
         }
         .details-label {
             font-weight: bold;
-            color: #00a680;
+            color: #cca12c;
+            display: inline;
         }
         .details-stars {
-            color: #f7b731;
+            color: #cca12c;
             font-size: 1.2rem;
             margin-bottom: 10px;
         }
         .details-section {
             margin-bottom: 14px;
+            color: rgb(248, 231, 195);
+        }
+        .details-btn, .details-container a {
+            background: #cca12c;
+            color: #18120a !important;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 18px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 18px;
+            box-shadow: 0 2px 8px rgba(204,161,44,0.10);
+            outline: none;
+            display: inline-block;
+        }
+        .details-btn:hover, .details-btn:focus, .details-btn:active, .details-container a:hover {
+            background: #FFD700;
+            color: #18120a !important;
+        }
+        #ajouter-avis-btn, #ajouter-avis-btn svg {
+            color: #cca12c !important;
+            fill: #cca12c !important;
+        }
+        #ajouter-avis-btn:hover, #ajouter-avis-btn:focus {
+            color: #FFD700 !important;
+            fill: #FFD700 !important;
+        }
+        #form-avis textarea, #form-avis input[type="text"] {
+            background: #222;
+            color: rgb(248, 231, 195);
+            border: 1px solid #cca12c;
+            border-radius: 6px;
+            padding: 8px;
+        }
+        #form-avis button {
+            background: #cca12c;
+            color: #18120a;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 18px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.2s, color 0.2s;
+        }
+        #form-avis button:hover {
+            background: #FFD700;
+            color: #18120a;
         }
     </style>
 </head>
@@ -62,8 +125,8 @@ if ($lieu = $result->fetch_assoc()) {
     echo '<div class="details-title">' . htmlspecialchars($lieu["nom"]) . '</div>';
     // Correction du chemin de l'image si besoin
     $image_url = htmlspecialchars($lieu["image_url"]);
-    if (strpos($image_url, 'images/') !== 0) {
-        $image_url = 'images/' . $image_url;
+    if (strpos($image_url, 'image_url/') !== 0) {
+        $image_url = 'image_url/' . $image_url;
     }
     echo '<img src="' . $image_url . '" class="details-image" alt="Image du lieu">';
     echo '<div class="details-stars">';
@@ -78,7 +141,7 @@ if ($lieu = $result->fetch_assoc()) {
     echo '<div class="details-section"><span class="details-label">Services :</span> ' . htmlspecialchars($lieu["services"]) . '</div>';
     echo '<div class="details-section"><span class="details-label">Description :</span> ' . htmlspecialchars($lieu["description"]) . '</div>';
     echo '<div class="details-section"><span class="details-label">Avis :</span> ' . nl2br(htmlspecialchars($lieu["avis"])) . '</div>';
-    echo '<a href="afficher_lieux.php" style="display:inline-block;margin-top:18px;color:#00a680;text-decoration:underline;">&larr; Retour à la liste</a>';
+    echo '<a href="afficher_lieux.php" class="details-btn">&larr; Retour à la liste</a>';
     // Ajout du mini stylo et du lien "Ajouter un avis"
     echo '<div style="margin-top:28px;text-align:right;">';
     echo '<span id="ajouter-avis-btn" style="cursor:pointer;color:#00a680;font-weight:500;display:inline-flex;align-items:center;">';

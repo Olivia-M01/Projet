@@ -18,13 +18,8 @@
             </button>
             <div class="profile-dropdown" id="profileDropdown">
                 <ul>
-                    <li><i class="fa-solid fa-user"></i><a href="profil.html"> Profil</a></li>
                     <li><i class="fa-solid fa-house"></i><a href="acceuil.html">Acceuil</a></li>
                     <li><i class="fa-solid fa-circle-info"></i><a href="apropos.html">Apropos</a></li>
-                    <li><i class="fa-solid fa-list"></i> <a href="categories.html">Catégories</a></li>
-                    <li><i class="fa-solid fa-language"></i><a href=""> Langues</a></li>
-                    <li><i class="fa-solid fa-gear"></i><a href=""> Paramètre</a></li>
-                    <li><i class="fa-solid fa-circle-question"></i><a href=""> Aide</a></li>
                     <li><i class="fa-solid fa-right-from-bracket"></i><a href=""> Déconnexion</a></li>
                 </ul>
             </div>
@@ -37,14 +32,16 @@
     </div>
 
     <div class="recherche">
-        <input id="recherche" name="recherche" type="text" placeholder="Rechercher"><br><br>
+        <form method="GET" action="phpProjet/afficher_lieux.php" style="margin-bottom:0;">
+            <input id="recherche" name="recherche" type="text" placeholder="Rechercher un lieu, une catégorie, une adresse..." style="width:60%;padding:10px;border-radius:5px;border:1px solid #cca12c;">
+            <button type="submit" style="background:#cca12c;color:#ffedd6;border:none;border-radius:5px;padding:10px 18px;font-weight:500;cursor:pointer;margin-left:8px;">Rechercher</button>
+        </form>
     </div>
 
     <footer class="footer-icons">
         <a class="icon-btn" href="phpProjet/afficher_lieux.php?type=hotel"><span class="icon-img"><i class="fa-solid fa-hotel"></i></span><span class="icon-label">Hôtel</span></a>
         <a class="icon-btn" href="phpProjet/afficher_lieux.php?type=restaurant"><span class="icon-img"><i class="fa-solid fa-utensils"></i></span><span class="icon-label">Restaurant</span></a>
         <a class="icon-btn" href="phpProjet/afficher_lieux.php?type=site_touristique"><span class="icon-img"><i class="fa-solid fa-mountain-sun"></i></span><span class="icon-label">Tourisme</span></a>
-        <a class="icon-btn" href="phpProjet/afficher_lieux.php?type=hopital"><span class="icon-img"><i class="fa-solid fa-notes-medical"></i></span><span class="icon-label">Hôpital</span></a>
     </footer>
     <script src="acceuil.js"></script>
 </body>

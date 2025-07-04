@@ -4,7 +4,8 @@
     box-sizing: border-box;
 }
 body{
-    background-color: #f7b731;
+    background-color: #0c0c0c;
+    color: rgb(248, 231, 195);
 }
 
 /* Style général pour la grille des lieux */
@@ -18,9 +19,10 @@ body{
 
 /* Carte de chaque lieu */
 .lieu-card {
-    background: #fff;
+    background: #18120a;
     border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    border: 2.5px solid #cca12c; /* Doré, même ton que acceuil.css */
+    box-shadow: 0 4px 16px rgba(0,0,0,0.13);
     width: 320px;
     overflow: hidden;
     display: flex;
@@ -29,14 +31,16 @@ body{
 }
 .lieu-card:hover {
     transform: translateY(-6px) scale(1.03); /* Déplace et agrandit légèrement la carte au survol */
-    box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+    box-shadow: 0 8px 24px rgba(204,161,44,0.18);
+    border-color: #FFD700;
 }
 
 .lieu-image {
     width: 100%;
     height: 180px;
     object-fit: cover; /* L'image garde son ratio et remplit le conteneur */
-    background: #eee;
+    background: #222;
+    border-bottom: 2px solid #cca12c;
 }
 
 .lieu-content {
@@ -50,18 +54,19 @@ body{
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 8px;
-    color: #2d3a4b;
+    color: #FFD700;
+    letter-spacing: 0.5px;
 }
 
 .lieu-stars {
-    color: #f7b731;
+    color: #cca12c;
     margin-bottom: 8px;
     font-size: 1.1rem;
 }
 
 .lieu-description {
     font-size: 0.98rem;
-    color: #555;
+    color: rgb(248, 231, 195);
     margin-bottom: 14px;
     flex: 1;
     overflow: hidden; /* Cache le texte qui dépasse */
@@ -71,9 +76,15 @@ body{
     -webkit-box-orient: vertical; /* Définit l'orientation de la boîte pour le clamp */
 }
 
+.lieu-categorie {
+    color: #cca12c !important;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
 .lieu-btn {
-    background: #00a680;
-    color: #fff;
+    background: #cca12c;
+    color: #18120a;
     border: none;
     border-radius: 8px;
     padding: 10px 0;
@@ -83,8 +94,11 @@ body{
     transition: background 0.2s; /* Animation lors du survol du bouton */
     text-align: center;
     text-decoration: none;
+    margin-top: 8px;
+    box-shadow: 0 2px 8px rgba(204,161,44,0.10);
 }
 .lieu-btn:hover {
-    background: #007d5e;
+    background: #FFD700;
+    color: #18120a;
 }
 
