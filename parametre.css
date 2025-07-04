@@ -1,0 +1,40 @@
+/* Style pour la page paramètres */
+.param-page {
+    background: #18120a;
+    color: #cca12c;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    padding: 36px 32px 28px 32px;
+    min-width: 320px;
+    max-width: 90vw;
+    text-align: center;
+    margin: 60px auto 0 auto;
+}
+.param-page h2 {
+    margin-bottom: 22px;
+    color: #cca12c;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+.param-page ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 18px 0;
+}
+.param-page li {
+    margin: 18px 0;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+.param-page a {
+    color: #cca12c;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.param-page a:hover {
+    color: #FFD700;
+}
