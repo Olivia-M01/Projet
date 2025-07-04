@@ -20,11 +20,26 @@
                 <ul>
                     <li><i class="fa-solid fa-house"></i><a href="acceuil.html">Acceuil</a></li>
                     <li><i class="fa-solid fa-circle-info"></i><a href="apropos.html">Apropos</a></li>
-                    <li><i class="fa-solid fa-right-from-bracket"></i><a href=""> Déconnexion</a></li>
+                    <li class="param-menu">
+                        <i class="fa-solid fa-gear"></i>
+                        <a href="parametre.html">Paramètre</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+    <div class="param-panel" id="paramPanel" style="display:none;">
+        <div class="param-panel-content">
+            <h2>Paramètres</h2>
+            <ul>
+                <li><i class="fa-solid fa-right-from-bracket"></i> <a href="#">Déconnexion</a></li>
+                <li><i class="fa-solid fa-key"></i> <a href="#">Changer mot de passe</a></li>
+                <li><i class="fa-solid fa-user-pen"></i> <a href="#">Modifier profil</a></li>
+            </ul>
+            <button id="closeParamPanel" style="margin-top:18px;background:#cca12c;color:#fff;border:none;padding:8px 18px;border-radius:6px;cursor:pointer;">Fermer</button>
+        </div>
+    </div>
 
     <div class="accroche">
         <h1>Que voulez-vous découvrir aujourd'hui ?</h1>
